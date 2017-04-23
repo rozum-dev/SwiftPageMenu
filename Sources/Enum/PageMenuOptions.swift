@@ -67,6 +67,8 @@ public protocol PageMenuOptions {
     var tabMenuPosition: TabMenuPosition { get }
     var tabMenuContentInset: UIEdgeInsets { get }
     var layout: PageMenuLayout { get }
+    var blockManualScroll: Bool { get }
+    
 }
 
 extension PageMenuOptions {
@@ -116,5 +118,10 @@ public struct DefaultPageMenuOption: PageMenuOptions {
         return .white
     }
 
+    public var blockManualScroll: Bool {
+        return false
+    }
+    
+    
     public init() {}
 }

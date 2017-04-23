@@ -36,7 +36,7 @@ open class PageMenuController: UIViewController {
     }
 
     fileprivate lazy var pageViewController: EMPageViewController = {
-        let vc = EMPageViewController(navigationOrientation: .horizontal)
+        let vc = EMPageViewController(navigationOrientation: .horizontal, blockManualScroll: self.options.blockManualScroll)
 
         vc.view.backgroundColor = .clear
         vc.dataSource = self
@@ -114,20 +114,6 @@ open class PageMenuController: UIViewController {
      */
     public func reloadPages() {
         self.reloadPages(reloadViewControllers: true)
-    }
-
-    /**
-     Transitions to the next page.
-     */
-    public func scrollToNext(animated: Bool, completion: ((Bool) -> Void)?) {
-        self.pageViewController.scrollForward(animated: animated, completion: completion)
-    }
-
-    /**
-     Transitions to the previous page.
-     */
-    public func scrollToPrevious(animated: Bool, completion: ((Bool) -> Void)?) {
-        self.pageViewController.scrollReverse(animated: animated, completion: completion)
     }
 
     // MARK: - Public Interface
